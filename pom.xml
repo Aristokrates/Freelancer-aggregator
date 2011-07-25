@@ -1,0 +1,292 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.pan</groupId>
+	<artifactId>freelancer-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Freelancer Parent Project</name>
+	<description>Getting info from freelancer sites	</description>
+
+	<modules>
+		<module>freelancer4j</module>
+		<module>linkedin4j</module>
+		<module>oDesk4j</module>
+		<module>elance4j</module>
+		<module>freelancer-client</module>
+		<module>freelancer-domain-model</module>
+	</modules>
+
+	<properties>
+		<java.version>1.6</java.version>
+		<junit.version>4.8.2</junit.version>
+		<quartz.version>1.6.5</quartz.version>
+
+		<spring.version>3.0.5.RELEASE</spring.version>
+		<freelancer.version>0.0.1-SNAPSHOT</freelancer.version>
+		<commons.collections.version>3.2</commons.collections.version>
+		<commons.codec>1.4</commons.codec>
+
+		<outh.http4.version>20090913</outh.http4.version>
+		<http4.client.version>4.1.1</http4.client.version>
+		<json.parser.version>20090211</json.parser.version>
+		<jackson.version>1.7.2</jackson.version>
+		<xstream.version>1.3.1</xstream.version>
+
+		<slf4j.version>1.5.2</slf4j.version>
+		<log4j.version>1.2.15</log4j.version>
+		<commons.logging.version>1.1.1</commons.logging.version>
+
+		<failIfNoTests>false</failIfNoTests>
+		<skipTests>true</skipTests>
+
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.0.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.6</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>2.6</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencyManagement>
+		<dependencies>
+
+
+			<dependency>
+				<groupId>org.pan</groupId>
+				<artifactId>freelancer4j</artifactId>
+				<version>${freelancer.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.pan</groupId>
+				<artifactId>oDesk4j</artifactId>
+				<version>${freelancer.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.pan</groupId>
+				<artifactId>elance4j</artifactId>
+				<version>${freelancer.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.pan</groupId>
+				<artifactId>linkedin4j</artifactId>
+				<version>${freelancer.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.pan</groupId>
+				<artifactId>freelancer-client</artifactId>
+				<version>${freelancer.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.pan</groupId>
+				<artifactId>freelancer-domain-model</artifactId>
+				<version>${freelancer.version}</version>
+			</dependency>
+
+			<!-- Spring framework -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-asm</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.opensymphony.quartz</groupId>
+				<artifactId>quartz</artifactId>
+				<version>${quartz.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${commons.collections.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons.codec}</version>
+			</dependency>
+
+			<!-- Http/Oauth -->
+
+			<dependency>
+				<groupId>net.oauth.core</groupId>
+				<artifactId>oauth-httpclient4</artifactId>
+				<version>${outh.http4.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${http4.client.version}</version>
+				<scope>compile</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcore</artifactId>
+				<version>${http4.client.version}</version>
+				<scope>compile</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>oauth.signpost</groupId>
+				<artifactId>signpost-core</artifactId>
+				<version>1.2.1.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.sf.kxml</groupId>
+				<artifactId>kxml2</artifactId>
+				<version>2.3.0</version>
+			</dependency>
+
+			<!-- Json parser/mapper -->
+
+			<dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>${json.parser.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-core-asl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-xc</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+				<version>${xstream.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${commons.logging.version}</version>
+			</dependency>
+
+			<!-- Testing -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>codehaus</id>
+			<url>http://snapshots.repository.codehaus.org/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>atlassian</id>
+			<url>https://maven.atlassian.com/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+</project>
