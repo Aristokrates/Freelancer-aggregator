@@ -26,6 +26,7 @@
 		<freelancer.version>0.0.1-SNAPSHOT</freelancer.version>
 		<commons.collections.version>3.2</commons.collections.version>
 		<commons.codec>1.4</commons.codec>
+		<servlet.version>2.5</servlet.version>
 
 		<outh.http4.version>20090913</outh.http4.version>
 		<http4.client.version>4.1.1</http4.client.version>
@@ -107,7 +108,7 @@
 				<artifactId>freelancer-client</artifactId>
 				<version>${freelancer.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.pan</groupId>
 				<artifactId>freelancer-domain-model</artifactId>
@@ -161,6 +162,30 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-web</artifactId>
 				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servlet.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>taglibs</groupId>
+				<artifactId>standard</artifactId>
+				<version>1.1.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>displaytag</groupId>
+				<artifactId>displaytag</artifactId>
+				<version>1.1</version>
 			</dependency>
 
 			<dependency>

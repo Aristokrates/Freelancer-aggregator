@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="linkedinObserver" class="org.pan.freelancer.observer.LinkedInSiteObserver" />
+	
+	<bean id="linkedinClient" class="org.pan.linkedin.client.LinkedInClientWrapper">
+		<constructor-arg type="java.lang.String"><value>${linkedin.consumerKey}</value></constructor-arg>
+		<constructor-arg type="java.lang.String"><value>${linkedin.consumerSecret}</value></constructor-arg>
+		<constructor-arg type="java.lang.String"><value>${linkedin.token}</value></constructor-arg>
+		<constructor-arg type="java.lang.String"><value>${linkedin.tokenSecret}</value></constructor-arg>
+	</bean>
+	
+	<bean id="linkedinScheduler" class="org.pan.linkedin.scheduler.LinkedInGenericScheduler" scope="singleton" destroy-method="destroy">
+		<property name="linkedInClient" ref="linkedinClient" />
+		<property name="linkedInObserver" ref="linkedinObserver" />
+	</bean>
+
+	<bean id="linkedinJobSearchCriteria" class="org.pan.linkedin.search.LinkedInJobSearchCriteria" >
+		<property name="countryCode" value="cn" /> <!-- Search for jobs in China -->
+	<!-- Add initial search properties -->
+	</bean>
+	
+	<bean id="linkedinInitializer" class="org.pan.freelancer.initializer.LinkedInSystemInitializer">
+		<property name="enabled" value="${scheduler.linkedin.enabled}" />
+		<property name="linkedInScheduler" ref="linkedinScheduler" />
+		<property name="jobSearchCriteria" ref="linkedinJobSearchCriteria" />
+		<property name="jobSchedulePeriod" value ="3600000" /> <!-- in miliseconds (1h) -->
+	</bean>
+</beans>

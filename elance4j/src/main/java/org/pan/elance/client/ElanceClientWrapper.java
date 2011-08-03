@@ -1,16 +1,12 @@
 package org.pan.elance.client;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
 import org.pan.elance.json.GenericSerializer;
 import org.pan.elance.json.JacksonJsonSerializer;
-import org.pan.elance.model.job.ElanceJobModel;
 import org.pan.elance.model.job.ElanceJobModelWrapper;
-import org.pan.elance.model.provider.ElanceProviderModel;
 import org.pan.elance.model.provider.ElanceProviderModelWrapper;
 import org.pan.elance.model.provider.details.ElanceProviderDetailsModel;
 import org.pan.elance.search.ElanceJobSearchCriteria;
@@ -36,7 +32,7 @@ public class ElanceClientWrapper {
 		serializer = new JacksonJsonSerializer();	
 	}
 
-	public List<ElanceJobModel> searchJobsByCriteria(ElanceJobSearchCriteria searchCriteria) {
+	public ElanceJobModelWrapper searchJobsByCriteria(ElanceJobSearchCriteria searchCriteria) {
 
 		String requestUrl = "http://api.elance.com/api/search/jobs";
 		Map<String, String> params = searchCriteria.buildParameterMap();
@@ -45,14 +41,13 @@ public class ElanceClientWrapper {
 			JSONObject object = elanceClient.getRequest(requestUrl, params);
 			JSONObject dataJson = object.getJSONObject("data");
 			
-			ElanceJobModelWrapper jobWrapper = serializer.fromJson(dataJson.toString(), ElanceJobModelWrapper.class);
-			return new ArrayList<ElanceJobModel>(jobWrapper.getJobMap().values());
+			return serializer.fromJson(dataJson.toString(), ElanceJobModelWrapper.class);
 		} catch (Exception e) {
 			throw new RuntimeException();
 		}
 	}
 
-	public List<ElanceProviderModel> searchProvidersByCriteria(ElanceProviderSearchCriteria searchCriteria) {
+	public ElanceProviderModelWrapper searchProvidersByCriteria(ElanceProviderSearchCriteria searchCriteria) {
 
 		String requestUrl = "http://api.elance.com/api/search/providers";
 		Map<String, String> params = searchCriteria.buildParameterMap();
@@ -60,8 +55,9 @@ public class ElanceClientWrapper {
 		try {
 			JSONObject object = elanceClient.getRequest(requestUrl, params);
 			JSONObject dataJson = object.getJSONObject("data");
-			ElanceProviderModelWrapper providerWrapper = serializer.fromJson(dataJson.toString(), ElanceProviderModelWrapper.class);
-			return new ArrayList<ElanceProviderModel>(providerWrapper.getProvidersMap().values());
+			
+			return serializer.fromJson(dataJson.toString(), ElanceProviderModelWrapper.class);
+		
 		} catch (Exception e) {
 			throw new RuntimeException();
 		}

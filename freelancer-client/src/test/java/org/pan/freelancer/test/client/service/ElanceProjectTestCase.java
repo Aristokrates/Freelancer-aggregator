@@ -1,12 +1,10 @@
 package org.pan.freelancer.test.client.service;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.junit.Test;
-import org.pan.elance.model.job.ElanceJobModel;
-import org.pan.elance.model.provider.ElanceProviderModel;
+import org.pan.elance.model.job.ElanceJobModelWrapper;
+import org.pan.elance.model.provider.ElanceProviderModelWrapper;
 import org.pan.elance.model.provider.details.ElanceProviderDetailsModel;
 import org.pan.elance.search.ElanceJobSearchCriteria;
 import org.pan.elance.search.ElanceProviderSearchCriteria;
@@ -23,9 +21,9 @@ public class ElanceProjectTestCase extends BaseTestCase {
 		ElanceJobSearchCriteria jobSearchCriteria = new ElanceJobSearchCriteria();
 		jobSearchCriteria.setKeyword("Java");
 		
-		List<ElanceJobModel> elanceJobSearchResult = elanceService.getProjectsByCriteria(jobSearchCriteria);
+		ElanceJobModelWrapper jobModelWrapper = elanceService.getProjectsByCriteria(jobSearchCriteria);
 		
-		System.out.println(elanceJobSearchResult);
+		System.out.println(jobModelWrapper);
 	}
 	
 	@Test
@@ -34,9 +32,9 @@ public class ElanceProjectTestCase extends BaseTestCase {
 		ElanceProviderSearchCriteria providerSearchCriteria = new ElanceProviderSearchCriteria();
 		providerSearchCriteria.setKeyword("Java");
 		
-		List<ElanceProviderModel> providers = elanceService.getProvidersByCriteria(providerSearchCriteria);
+		ElanceProviderModelWrapper providerModelWrapper = elanceService.getProvidersByCriteria(providerSearchCriteria);
 		
-		System.out.println(providers);
+		System.out.println(providerModelWrapper);
 	}
 	
 	@Test

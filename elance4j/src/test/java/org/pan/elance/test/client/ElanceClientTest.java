@@ -1,5 +1,6 @@
 package org.pan.elance.test.client;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -20,7 +21,7 @@ public class ElanceClientTest {
 		ElanceJobSearchCriteria crit  = new ElanceJobSearchCriteria();
 		crit.setPage(1);
 		
-		System.out.println(client.searchJobsByCriteria(crit).size());
+		System.out.println(client.searchJobsByCriteria(crit).getTotalResults());
 	}
 	
 	@Test
@@ -28,9 +29,9 @@ public class ElanceClientTest {
 		ElanceClientWrapper client = new ElanceClientWrapper(apiKey);
 		
 		ElanceProviderSearchCriteria crit  = new ElanceProviderSearchCriteria();
-		crit.setPage(0);
+		crit.setPage(1);
 		
-		List<ElanceProviderModel> elanceProviders = client.searchProvidersByCriteria(crit);
+		List<ElanceProviderModel> elanceProviders = new ArrayList<ElanceProviderModel>(client.searchProvidersByCriteria(crit).getProvidersMap().values());
 		System.out.println(elanceProviders);
 	}
 	

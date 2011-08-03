@@ -47,7 +47,7 @@ public class ElanceJobTrigger implements StatefulJob {
 		
 		while (true) {	
 			
-			List<ElanceJobModel> projects = client.searchJobsByCriteria(copySearchCriteria);
+			List<ElanceJobModel> projects = new ArrayList<ElanceJobModel>(client.searchJobsByCriteria(copySearchCriteria).getJobMap().values());
 					
 			newJobList = new ArrayList<ElanceJobModel>();	
 			
@@ -68,9 +68,8 @@ public class ElanceJobTrigger implements StatefulJob {
 			copySearchCriteria.setPage(copySearchCriteria.getPage() + 1);
 			
 			try {
-				Thread.sleep(3*1000);
+				Thread.sleep(2*1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
