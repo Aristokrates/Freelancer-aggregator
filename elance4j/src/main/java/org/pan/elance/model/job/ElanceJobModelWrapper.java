@@ -1,6 +1,8 @@
 package org.pan.elance.model.job;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
@@ -74,6 +76,10 @@ public class ElanceJobModelWrapper {
 	@JsonProperty("pageResults")
 	public void setJobMap(Map<Integer, ElanceJobModel> jobMap) {
 		this.jobMap = jobMap;
+	}
+	
+	public List<ElanceJobModel> getJobs() {
+		return new LinkedList<ElanceJobModel>(getJobMap().values());
 	}
 
 	@Override

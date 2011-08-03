@@ -4,8 +4,14 @@
       <string>currentBuild</string>
       <path-set>
         <pathsSet class="linked-hash-set">
+          <string>css/jquery-ui-1.8.custom.css</string>
+          <string>css/style.css</string>
+          <string>js/jquery-1.6.2.min.js</string>
+          <string>js/jquery-ui-1.8.custom.min.js</string>
+          <string>js/jquery.validate.min.js</string>
           <string>META-INF/MANIFEST.MF</string>
           <string>WEB-INF/pages/displaytag.jsp</string>
+          <string>WEB-INF/pages/elanceJob.jsp</string>
           <string>WEB-INF/spring-servlet.xml</string>
           <string>WEB-INF/web.xml</string>
           <string>WEB-INF/classes/elance4j-spring-service.xml</string>
