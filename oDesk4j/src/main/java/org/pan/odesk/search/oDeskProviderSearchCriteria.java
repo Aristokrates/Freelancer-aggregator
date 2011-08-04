@@ -32,7 +32,9 @@ public class oDeskProviderSearchCriteria {
 	
 	private String titlesOnly;
 	
-	private String page;
+	private Integer page = 0;
+	
+	private Integer count = 200;
 	
 	private String sort;
 
@@ -119,13 +121,21 @@ public class oDeskProviderSearchCriteria {
 	public void setTitlesOnly(String titlesOnly) {
 		this.titlesOnly = titlesOnly;
 	}
-
-	public String getPage() {
+	
+	public Integer getPage() {
 		return page;
 	}
 
-	public void setPage(String page) {
+	public void setPage(Integer page) {
 		this.page = page;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 
 	public String getSort() {
@@ -180,9 +190,17 @@ public class oDeskProviderSearchCriteria {
 			map.put("to", getTitlesOnly());
 		}
 		
-		if (getPage() != null) {
-			map.put("page", getPage());
+		Integer count = 200;
+		if (getCount() != null && !getCount().equals(200)) {
+			count = getCount();
 		}
+
+		Integer page = 0;
+		if (getPage() != null && !getPage().equals(0)) {
+			page = getPage();
+		}
+		
+		map.put("page", page*count + ";" + count);
 		
 		if (getSort() != null) {
 			map.put("sort", getSort());

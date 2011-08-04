@@ -7,7 +7,9 @@ import java.util.Map;
 import java.util.Set;
 
 import org.pan.linkedin.model.job.LinkedInJobModel;
+import org.pan.linkedin.model.job.LinkedInJobModelWrapper;
 import org.pan.linkedin.model.person.LinkedInPersonModel;
+import org.pan.linkedin.model.person.LinkedInPersonModelWrapper;
 import org.pan.linkedin.model.person.details.LinkedInPersonDetailsModel;
 import org.pan.linkedin.search.LinkedInJobSearchCriteria;
 import org.pan.linkedin.search.LinkedInPeopleSearchCriteria;
@@ -40,8 +42,10 @@ public class LinkedInClientWrapper {
 		linkedInApiClient = factory.createLinkedInApiClient(token, tokenSecret);
 	}
 
-	public List<LinkedInJobModel> searchJobsByCriteria(LinkedInJobSearchCriteria searchCriteria) {
+	public LinkedInJobModelWrapper searchJobsByCriteria(LinkedInJobSearchCriteria searchCriteria) {
 
+		LinkedInJobModelWrapper modelWrapper = new LinkedInJobModelWrapper();
+		
 		Map<SearchParameter, String> searchParameters = searchCriteria.buildSearchParameterMap();
 		List<Parameter<FacetType, String>> facets = searchCriteria.buildSearchFacets();		
 		Integer start = searchCriteria.getStart();
@@ -49,12 +53,16 @@ public class LinkedInClientWrapper {
 
 		Jobs jobs = linkedInApiClient.searchJobs(searchParameters, buildJobFieldSet(false), start, count, facets);
 		List<Job> jobList = jobs.getJobList();
-		return buildModelFromJobList(jobList);
+		modelWrapper.setLinkedinJobs(buildModelFromJobList(jobList));
+		modelWrapper.setTotalResults(jobs.getTotal().intValue());
+		
+		return modelWrapper;
 
 	}
 
-	public List<LinkedInPersonModel> searchPeopleByCriteria(LinkedInPeopleSearchCriteria searchCriteria) {
+	public LinkedInPersonModelWrapper searchPeopleByCriteria(LinkedInPeopleSearchCriteria searchCriteria) {
 
+		LinkedInPersonModelWrapper modelWrapper = new LinkedInPersonModelWrapper();
 		Map<SearchParameter, String> searchParameters = searchCriteria.buildSearchParameterMap();
 		List<Parameter<FacetType, String>> facets = searchCriteria.buildSearchFacets();		
 		Integer start = searchCriteria.getStart();
@@ -62,7 +70,9 @@ public class LinkedInClientWrapper {
 
 		People people = linkedInApiClient.searchPeople(searchParameters, buildProfileFieldSet(true), start, count, facets);
 
-		return buildModelFromPersonList(people.getPersonList());
+		modelWrapper.setPeople(buildModelFromPersonList(people.getPersonList()));
+		modelWrapper.setTotalResults(people.getTotal().intValue());
+		return modelWrapper;
 	}	
 	
 	public LinkedInPersonDetailsModel getPersonDetails(String personId) {

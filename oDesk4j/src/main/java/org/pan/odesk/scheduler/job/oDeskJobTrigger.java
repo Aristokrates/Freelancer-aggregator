@@ -64,7 +64,7 @@ public class oDeskJobTrigger implements StatefulJob {
 		
 		while (true) {	
 			
-			List<oDeskJobModel> jobs = client.searchJobsByCriteria(copySearchCriteria);
+			List<oDeskJobModel> jobs = client.searchJobsByCriteria(copySearchCriteria).getJobs();
 					
 			newJobList = new ArrayList<oDeskJobModel>();	
 			changeStateJobList = new ArrayList<oDeskCacheJob>();	

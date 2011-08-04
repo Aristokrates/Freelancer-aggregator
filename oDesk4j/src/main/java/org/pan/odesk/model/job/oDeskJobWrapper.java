@@ -1,10 +1,13 @@
 package org.pan.odesk.model.job;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
- * oDesk job wrapper around job array model
+ * oDesk Job array model
  * 
  * @author Pance.Isajeski
  *
@@ -12,24 +15,35 @@ import org.codehaus.jackson.annotate.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class oDeskJobWrapper {
 	
-	private oDeskJobArray jobArray;
+	private List<oDeskJobModel> jobs = new ArrayList<oDeskJobModel>();;
+	
+	private oDeskLister lister;
 
 	public oDeskJobWrapper() {
 		super();
 	}
 
-	public oDeskJobWrapper(oDeskJobArray jobArray) {
+	public oDeskJobWrapper(List<oDeskJobModel> jobs, oDeskLister lister) {
 		super();
-		this.jobArray = jobArray;
+		this.jobs = jobs;
+		this.lister = lister;
 	}
 
-	public oDeskJobArray getJobArray() {
-		return jobArray;
+	public List<oDeskJobModel> getJobs() {
+		return jobs;
 	}
 
-	@JsonProperty("jobs")
-	public void setJobArray(oDeskJobArray jobArray) {
-		this.jobArray = jobArray;
+	@JsonProperty("job")
+	public void setJobs(List<oDeskJobModel> jobs) {
+		this.jobs = jobs;
 	}
-	
+
+	public oDeskLister getLister() {
+		return lister;
+	}
+
+	@JsonProperty("lister")
+	public void setLister(oDeskLister lister) {
+		this.lister = lister;
+	}
 }

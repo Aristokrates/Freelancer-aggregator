@@ -22,7 +22,7 @@ public class oDeskProjectTestCase extends BaseTestCase {
 		oDeskJobSearchCriteria searchCriteria = new oDeskJobSearchCriteria();
 		searchCriteria.setJobCategory("Web Development");
 		searchCriteria.setJobType("Hourly");
-		List<oDeskJobModel> oDeskJobs = oDeskService.getJobsByCriteria(searchCriteria);
+		List<oDeskJobModel> oDeskJobs = oDeskService.getJobsByCriteria(searchCriteria).getJobs();
 		System.out.println(oDeskJobs);
 	}
 	
@@ -32,8 +32,18 @@ public class oDeskProjectTestCase extends BaseTestCase {
 		oDeskProviderSearchCriteria searchCriteria = new oDeskProviderSearchCriteria();
 		searchCriteria.setJobCategory("Web Development");
 		
-		List<oDeskProviderModel> providers = oDeskService.getProvidersByCriteria(searchCriteria);
+		List<oDeskProviderModel> providers = oDeskService.getProvidersByCriteria(searchCriteria).getProviders();
 		
 		System.out.println(providers);
+	}
+	
+	@Test
+	public void testGetProviderDetails() {
+		
+		String providerId = "~~97784d8733806815";
+		
+		oDeskProviderModel providerDetails = oDeskService.getProviderById(providerId);
+		
+		System.out.println(providerDetails);
 	}
 }

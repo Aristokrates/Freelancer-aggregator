@@ -2,7 +2,6 @@ package org.pan.odesk.test.client;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.json.JSONException;
 import org.junit.Ignore;
@@ -59,7 +58,7 @@ public class OdeskClientTestCase extends BaseTestCase {
 		criteria.setCount(200);
 		criteria.setStatusForSearching("In progress");
 		
-		List<oDeskJobModel> jobs = wrapper.searchJobsByCriteria(criteria);
+		List<oDeskJobModel> jobs = wrapper.searchJobsByCriteria(criteria).getJobs();
 		
 		System.out.println(jobs);
 	}
@@ -73,9 +72,10 @@ public class OdeskClientTestCase extends BaseTestCase {
 		oDeskClientWrapper wrapper = new oDeskClientWrapper(secret, apiKey, apiToken);
 		
 		oDeskProviderSearchCriteria criteria = new oDeskProviderSearchCriteria();
-		criteria.setPage("0;200");
+		criteria.setPage(0);
+		criteria.setCount(200);
 		
-		List<oDeskProviderModel> providers = wrapper.searchProvidersByCriteria(criteria);
+		List<oDeskProviderModel> providers = wrapper.searchProvidersByCriteria(criteria).getProviders();
 		
 		System.out.println(providers);
 	}

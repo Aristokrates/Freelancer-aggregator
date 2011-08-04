@@ -35,7 +35,7 @@ public class LinkedInClientTest {
 		criteria.setCountryCode("fr");
 		criteria.setCount(110);
 		
-		List<LinkedInJobModel> jobModelList = clientWrapper.searchJobsByCriteria(criteria);
+		List<LinkedInJobModel> jobModelList = clientWrapper.searchJobsByCriteria(criteria).getLinkedinJobs();
 		
 		System.out.println(jobModelList);
 		
