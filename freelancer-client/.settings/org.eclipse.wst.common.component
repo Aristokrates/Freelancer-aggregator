@@ -7,9 +7,6 @@
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/freelancer4j/freelancer4j">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/freelancer-domain-model/freelancer-domain-model">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/oDesk4j/oDesk4j">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -17,6 +14,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/linkedin4j/linkedin4j">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/freelancer-domain-model/freelancer-domain-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="freelancer-client"/>

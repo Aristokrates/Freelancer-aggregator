@@ -34,7 +34,7 @@ import com.google.code.linkedinapi.schema.Person;
  */
 public class LinkedInClientWrapper {
 
-	private LinkedInApiClient linkedInApiClient;
+	private final LinkedInApiClient linkedInApiClient;
 
 	public LinkedInClientWrapper(String consumerKey, String consumerSecret, String token, String tokenSecret) {
 
@@ -68,7 +68,7 @@ public class LinkedInClientWrapper {
 		Integer start = searchCriteria.getStart();
 		Integer count = searchCriteria.getCount();
 
-		People people = linkedInApiClient.searchPeople(searchParameters, buildProfileFieldSet(true), start, count, facets);
+		People people = linkedInApiClient.searchPeople(searchParameters, buildProfileFieldSet(false), start, count, facets);
 
 		modelWrapper.setPeople(buildModelFromPersonList(people.getPersonList()));
 		modelWrapper.setTotalResults(people.getTotal().intValue());
@@ -124,12 +124,20 @@ public class LinkedInClientWrapper {
 		profileFields.add(ProfileField.SUMMARY);
 		profileFields.add(ProfileField.SPECIALTIES);
 		profileFields.add(ProfileField.PUBLIC_PROFILE_URL);
+		profileFields.add(ProfileField.PICTURE_URL);
+		profileFields.add(ProfileField.LANGUAGES);
+		profileFields.add(ProfileField.LANGUAGES_LANGUAGE);
+		profileFields.add(ProfileField.LANGUAGES_PROFICIENCY);
 		
 		if (detailView) {
 			profileFields.add(ProfileField.SKILLS);
 			profileFields.add(ProfileField.INDUSTRY);
 			profileFields.add(ProfileField.POSITIONS);
 			profileFields.add(ProfileField.LOCATION);
+			profileFields.add(ProfileField.LOCATION_NAME);
+			profileFields.add(ProfileField.LOCATION_COUNTRY);
+			profileFields.add(ProfileField.THREE_CURRENT_POSITIONS);
+			profileFields.add(ProfileField.THREE_PAST_POSITIONS);
 		}
 		
 

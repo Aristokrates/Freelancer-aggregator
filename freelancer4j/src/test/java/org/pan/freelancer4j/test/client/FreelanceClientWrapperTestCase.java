@@ -11,7 +11,6 @@ import org.pan.freelancer4j.model.project.details.FreelancerProjectDetails;
 import org.pan.freelancer4j.model.user.FreelancerUserList;
 import org.pan.freelancer4j.model.user.details.FreelancerUserDetails;
 import org.pan.freelancer4j.scheduler.FreelancerGenericScheduler;
-import org.pan.freelancer4j.scheduler.FreelancerObserver;
 import org.pan.freelancer4j.search.ProjectSearchCriteria;
 import org.pan.freelancer4j.search.UserSearchCriteria;
 import org.pan.freelancer4j.setting.FreelancerClientSettings;
@@ -67,7 +66,6 @@ public class FreelanceClientWrapperTestCase extends BaseTestCase {
 		ProjectSearchCriteria projectSearchCriteria = new ProjectSearchCriteria();
 		projectSearchCriteria.setPage(0);
 		projectSearchCriteria.setCount(200);
-		projectSearchCriteria.setIsfulltime(Boolean.TRUE);
 		
 		
 		FreelancerProjectList projectList = freelancerClientWrapper.searchProjectsByCriteria(projectSearchCriteria);

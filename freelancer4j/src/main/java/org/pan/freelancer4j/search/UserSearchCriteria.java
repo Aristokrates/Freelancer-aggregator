@@ -3,8 +3,8 @@ package org.pan.freelancer4j.search;
 import java.util.AbstractMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  * Freelancer users search criteria
@@ -24,9 +24,9 @@ public class UserSearchCriteria {
 	
 	private Integer rating;
 	
-	private Integer count;
+	private Integer count = 200;
 	
-	private Integer page;
+	private Integer page = 0;
 	 
 	
 	public String getUsername() {

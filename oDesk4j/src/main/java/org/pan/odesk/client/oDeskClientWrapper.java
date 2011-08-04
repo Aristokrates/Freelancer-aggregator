@@ -24,8 +24,8 @@ import org.pan.odesk.search.oDeskProviderSearchCriteria;
  */
 public class oDeskClientWrapper {
 
-	private oDeskAPI oDeskApi;
-	private GenericSerializer serializer;
+	private final oDeskAPI oDeskApi;
+	private final GenericSerializer serializer;
 
 	public oDeskClientWrapper(String appSecret, String appKey, String apiToken) {
 		super();
@@ -103,7 +103,6 @@ public class oDeskClientWrapper {
 			JSONObject object = oDeskApi.getRequest(requestUrl);
 			JSONObject providerObject = object.getJSONObject("profile");
 			oDeskProviderModel providerModel = serializer.fromJson(providerObject.toString(), oDeskProviderModel.class);
-			System.out.println(serializer.toJson(providerModel));
 			return providerModel;
 			
 		} catch (Exception e) {

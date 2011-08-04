@@ -55,7 +55,12 @@ public class LinkedInPersonDetailsModel {
 			for (Skill skill : person.getSkills().getSkillList()) {
 				this.skills.add(skill.getSkill().getName());
 			}
-		}				
+		}	
+		
+		if (person.getLocation() != null) {
+			this.location = person.getLocation().getName();
+		}
+		
 	}
 
 	public String getPersonId() {

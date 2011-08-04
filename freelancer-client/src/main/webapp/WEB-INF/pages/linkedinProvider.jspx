@@ -39,38 +39,30 @@
 					
 					$.getJSON("provider_details.do?id=" + id, function(data){ 
 						 					
-						var html = "<b>User name: </b> " + data.userName;
+						var html = "<b>First name: </b> " + data.firstName;
 						html += "<br/>";
-						html += "<b>Business name: </b>" + data.businessName;
+						html += "<b>Last name: </b>" + data.lastName;
 						html += "<br/>";
-						html += "<b>Elance level: </b>" + data.elanceLevel;
+						html += "<b>Summary: </b>" + data.summary;
 						html += "<br/>";
-						html += "<b>Category: </b>" + data.category;
+						html += "<b>Industry: </b>" + data.industry;
 						html += "<br/>";
-						html += "<b>Total Earning($): </b>" + data.earnings;
+						html += "<b>Location: </b>" + data.location;
 						html += "<br/>";
-						html += "<b>No. Clients: </b>" + data.clients;
-						html += "<br/>";
-						html += "<b>No. Jobs: </b>" + data.jobs;
+						html += "<b>Specialties: </b>" + data.specialities;
 						html += "<br/>";
 
-						html += "<b>Latest jobs: </b>";
-						$.each(data.latestJobs, function() {
-							   html += "<br/>";
-						       $.each(this, function(key, val) {
-						    	   html += "<span><i>" + key + ": </i>" + val + "</span>";
-						    	   html += "<br/>";
-							   });
+						html += "<b>Positions: </b>";
+						$.each(data.positions, function(index, entity) {
+						       html += "<span>" + entity + "</span>";
+						       html += ";";
 						});
 						
 						html += "<br/>";
 						html += "<b>Skills: </b>";
-						$.each(data.skills, function() {
-						  	html += "<br/>";
-						       $.each(this, function(key, val) {
-						    	   html += "<span><i>" + key + ": </i>" + val + "</span>";
-						    	   html += "<br/>";
-							   });
+						$.each(data.skills, function(index, entity) {
+						       html += "<span>" + entity + "</span>";
+						       html += ";";
 						});
 
 					$("#dialog_provider_more").html(html);
@@ -90,14 +82,15 @@
 
 <body>
 
+	<h1>Linkedin providers</h1>
+
 	<display:table uid="provider" name="${providerList}" pagesize="25" size="${size}"
 		partialList="true" requestURI="" cellpadding="1" cellspacing="1" class="jobTable">
 
 		<display:column property="firstName" title="First Name" />
 		<display:column property="lastName" title="Last name" />
-		
-		<display:column property="summary" title="Summary" />
 		<display:column property="specialities" title="Specialities" />
+		
 		<display:column title="Provider profile Url">
 			<a href="${provider.publicProfileUrl}" target="_blank">${provider.publicProfileUrl}</a>
 		</display:column>

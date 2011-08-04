@@ -7,7 +7,6 @@ import java.util.Set;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.pan.freelancer4j.client.FreelancerClient;
 import org.pan.freelancer4j.model.project.FreelancerProjectWrapper;
@@ -46,14 +45,12 @@ public class FreelancerClientTestCase extends BaseTestCase {
 	}
 	
 	@Test
-	@Ignore
 	public void testTokenRetrieval() {
 		String authUrl = freelancerClient.getUserAuthorizationUrl();
 		System.out.println(authUrl);
 	}
 	
 	@Test
-	@Ignore
 	public void testAccesTokenTokenRetrieval() {
 		freelancerClient.setRequestToken(new FreelancerRequestToken("5331609ffc079d2d25eae212b78006fd501e0cfc", 
 				"c66e7a9bb49353503d42f807f8597f54c319bcad"));

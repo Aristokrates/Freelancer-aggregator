@@ -90,6 +90,8 @@
 
 <body>
 
+	<h1>Elance providers</h1>
+
 	<display:table uid="provider" name="${providerList}" pagesize="25" size="${size}"
 		partialList="true" requestURI="" cellpadding="1" cellspacing="1" class="jobTable">
 

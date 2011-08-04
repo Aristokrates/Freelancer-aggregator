@@ -1,6 +1,7 @@
 <jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:c="http://java.sun.com/jstl/core_rt"
-	xmlns:display="http://displaytag.sf.net">
+	xmlns:display="http://displaytag.sf.net"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
 	<jsp:directive.page contentType="text/html" pageEncoding="UTF-8" />
 
@@ -25,7 +26,7 @@
 					autoOpen: false,
 					draggable: true,
 					resizable: false,
-					width: 600,	
+					width: 900,	
 					buttons: {
 						'Close': function() {
 							$(this).dialog('close');
@@ -36,9 +37,25 @@
 				
 				$(".tehbutton").click(function(){ 
 
-					var description = $(this).attr("description");		
+					var salary = $(this).attr("salary");	
+					var positionTitle = $(this).attr("positionTitle");	
+					var postitionSkills = $(this).attr("postitionSkills");
+					var postitionJobtype = $(this).attr("postitionJobtype");
+					var postitionFunctions = $(this).attr("postitionFunctions");
+					var positionIndustries = $(this).attr("positionIndustries");
 					
-					var html = "<b>Description:</b> " + description;
+					var html = "<b>Salary: </b> " + salary;
+					html += "<br/>";
+					html += "<b>Position title: </b> " + positionTitle;
+					html += "<br/>";
+					html += "<b>Position skills: </b> " + postitionSkills;
+					html += "<br/>";
+					html += "<b>Position job type: </b> " + postitionJobtype;
+					html += "<br/>";
+					html += "<b>Position functions: </b> " + postitionFunctions;
+					html += "<br/>";
+					html += "<b>Position Industries: </b> " + positionIndustries;
+					html += "<br/>";
 										
 					$("#dialog_job_more").html(html);			
 					$("#dialog_job_more").dialog('open');
@@ -53,16 +70,17 @@
 
 <body>
 
+	<h1>Linkedin jobs</h1>
+
 	<display:table uid="job" name="${jobList}" pagesize="20" size="${size}"
 		partialList="true" requestURI="" cellpadding="1" cellspacing="1" class="jobTable">
 
 		<display:column property="companyName" title="Company Name" />
 		<display:column property="description" title="Description" />
+		<display:column property="skills" title="Skills" />
 		<display:column property="postingDate" title="Posting date" />
 		<display:column property="expirationDate" title="Expiration date" />
-		<display:column property="location" title="Location" />
-		<display:column property="salary" title="Salary" />
-		<display:column property="skills" title="Skills" />		
+		<display:column property="location" title="Location" />	
 	
 		<display:column title="Job Url">
 			<a href="${job.jobUrl}" target="_blank">${job.jobUrl}</a>
@@ -75,7 +93,8 @@
 		<display:setProperty name="paging.banner.onepage" value="One" />
 
 		<display:column>
-			<a class="tehbutton" href="#">More Details</a>
+			<a class="tehbutton" href="#" salary="${job.salary}" positionTitle="${job.jobPosition.title}" postitionSkills="${job.jobPosition.skills}" postitionJobtype="${job.jobPosition.jobType}"
+			postitionFunctions = "${job.jobPosition.functions}" positionIndustries="${job.jobPosition.industries}" >More Details</a>
 		</display:column>
 
 	</display:table>

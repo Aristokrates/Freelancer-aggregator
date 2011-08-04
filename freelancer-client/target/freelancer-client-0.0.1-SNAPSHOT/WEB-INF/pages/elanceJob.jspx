@@ -1,6 +1,7 @@
 <jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:c="http://java.sun.com/jstl/core_rt"
-	xmlns:display="http://displaytag.sf.net">
+	xmlns:display="http://displaytag.sf.net"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
 	<jsp:directive.page contentType="text/html" pageEncoding="UTF-8" />
 
@@ -25,7 +26,7 @@
 					autoOpen: false,
 					draggable: true,
 					resizable: false,
-					width: 700,	
+					width: 900,	
 					buttons: {
 						'Close': function() {
 							$(this).dialog('close');
@@ -72,6 +73,9 @@
 </head>
 
 <body>
+
+
+	<h1>Elance jobs</h1>
 
 	<display:table uid="job" name="${jobList}" defaultsort="3"
 		defaultorder="descending" pagesize="25" size="${size}"

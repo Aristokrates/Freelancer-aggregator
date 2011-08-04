@@ -1,0 +1,38 @@
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jstl/core_rt"
+	xmlns:display="http://displaytag.sf.net"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+	<jsp:directive.page contentType="text/html" pageEncoding="UTF-8" />
+
+	<![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">]]>
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+</head>
+
+<body>
+	
+	<a href="elance/job_home.do" >Elance Jobs</a>
+	<br/>
+	<a href="elance/provider_home.do" >Elance Providers</a>
+	<br/>
+	<br/>
+	<a href="freelancer/job_home.do" >Freelancer Jobs</a>
+	<br/>
+	<a href="freelancer/provider_home.do" >Freelancer Providers</a>
+	<br/>
+	<br/>
+	<a href="linkedin/job_home.do" >Linkedin Jobs</a>
+	<br/>
+	<a href="linkedin/provider_home.do" >Linkedin Providers</a>
+	<br/>
+	<br/>
+	<a href="oDesk/job_home.do" >oDesk Jobs</a>
+	<br/>
+	<a href="oDesk/provider_home.do" >oDesk Providers</a>
+	
+</body>
+	</html>
+
+</jsp:root>

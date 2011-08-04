@@ -52,6 +52,8 @@
 	
 	<body>
 	
+		<h1>oDesk jobs</h1>
+	
 		<display:table uid="job" name="${jobList}" pagesize="200" size="${size}"
 			partialList="true" requestURI="" cellpadding="1" cellspacing="1" class="jobTable">
 	
