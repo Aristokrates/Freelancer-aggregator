@@ -1,0 +1,133 @@
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jstl/core_rt"
+	xmlns:display="http://displaytag.sf.net">
+
+	<jsp:directive.page contentType="text/html" pageEncoding="UTF-8" />
+
+	<![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">]]>
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="../css/style.css" />
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="../css/jquery-ui-1.8.14.custom.css" />
+
+<script type="text/javascript" src="../js/jquery-1.6.2.min.js">//<![CDATA[ ]]></script>
+<script type="text/javascript" src="../js/jquery.validate.min.js">//<![CDATA[ ]]></script>
+<script type="text/javascript" src="../js/jquery-ui-1.8.custom.min.js">//<![CDATA[ ]]></script>
+
+<script type="text/javascript">
+
+			$(document).ready(function() {
+				$("#dialog_provider_more").dialog({
+					modal: true,
+					autoOpen: false,
+					draggable: true,
+					resizable: false,	
+					width: 700,			
+					buttons: {
+						'Close': function() {
+							$(this).dialog('close');
+						}
+					}
+				});	 	
+
+				$(".tehbutton").click(function(){ 
+
+					var id = $(this).attr("id");
+					
+					$.getJSON("provider_details.do?id=" + id, function(data){ 
+						 					
+						var html = "<b>User name: </b> " + data.userName;
+						html += "<br/>";
+						html += "<b>Business name: </b>" + data.businessName;
+						html += "<br/>";
+						html += "<b>Elance level: </b>" + data.elanceLevel;
+						html += "<br/>";
+						html += "<b>Category: </b>" + data.category;
+						html += "<br/>";
+						html += "<b>Total Earning($): </b>" + data.earnings;
+						html += "<br/>";
+						html += "<b>No. Clients: </b>" + data.clients;
+						html += "<br/>";
+						html += "<b>No. Jobs: </b>" + data.jobs;
+						html += "<br/>";
+
+						html += "<b>Latest jobs: </b>";
+						$.each(data.latestJobs, function() {
+							   html += "<br/>";
+						       $.each(this, function(key, val) {
+						    	   html += "<span><i>" + key + ": </i>" + val + "</span>";
+						    	   html += "<br/>";
+							   });
+						});
+						
+						html += "<br/>";
+						html += "<b>Skills: </b>";
+						$.each(data.skills, function() {
+						  	html += "<br/>";
+						       $.each(this, function(key, val) {
+						    	   html += "<span><i>" + key + ": </i>" + val + "</span>";
+						    	   html += "<br/>";
+							   });
+						});
+
+					$("#dialog_provider_more").html(html);
+					$("#dialog_provider_more").dialog('open');
+									
+		            }); 
+
+
+		            return false;
+					
+				});
+											
+			});
+			</script>
+
+</head>
+
+<body>
+
+	<display:table uid="provider" name="${providerList}" pagesize="25" size="${size}"
+		partialList="true" requestURI="" cellpadding="1" cellspacing="1" class="jobTable">
+
+		<display:column property="userName" title="User Name" />
+		<display:column property="businessName" title="Business name" />
+		<display:column title="Logo" >
+		
+			<img src="${provider.logo}" alt="Logo" />
+		
+		</display:column>
+		<display:column property="category" title="Category" />
+		<display:column property="tagLine" title="Tag line" />
+		<display:column property="country" title="Country" />
+		<display:column property="state" title="State" />
+		<display:column property="city" title="City" />
+		<display:column property="hourlyRate" title="Hourly rate($)" />
+		<display:column property="earnings6Months" title="Earnings in the last 6 months($)" />
+		<display:column title="Provider profile Url">
+			<a href="${provider.providerProfileURL}" target="_blank">${provider.providerProfileURL}</a>
+		</display:column>
+
+		<display:setProperty name="basic.empty.showtable" value="true" />
+		<display:setProperty name="paging.banner.group_size" value="10" />
+		<display:setProperty name="paging.banner.item_name" value="Provider" />
+		<display:setProperty name="paging.banner.item_names" value="Providers" />
+		<display:setProperty name="paging.banner.onepage" value="One" />
+
+		<display:column>
+			<a class="tehbutton" href="#" id="${provider.userId}">More Details</a>
+		</display:column>
+
+	</display:table>
+
+	<div id="dialog_provider_more" style="display: none; ">
+		
+	</div>
+
+</body>
+	</html>
+
+</jsp:root>

@@ -1,6 +1,8 @@
 package org.pan.elance.model.provider;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
@@ -72,6 +74,10 @@ public class ElanceProviderModelWrapper {
 	@JsonProperty("pageResults")
 	public void setProvidersMap(Map<Integer, ElanceProviderModel> providersMap) {
 		this.providersMap = providersMap;
+	}
+	
+	public List<ElanceProviderModel> getProviders() {
+		return new LinkedList<ElanceProviderModel>(getProvidersMap().values());
 	}
 
 	@Override

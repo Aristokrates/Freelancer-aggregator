@@ -4,14 +4,28 @@
       <string>currentBuild</string>
       <path-set>
         <pathsSet class="linked-hash-set">
-          <string>css/jquery-ui-1.8.custom.css</string>
+          <string>css/images/ui-bg_diagonals-thick_18_b81900_40x40.png</string>
+          <string>css/images/ui-bg_diagonals-thick_20_666666_40x40.png</string>
+          <string>css/images/ui-bg_flat_10_000000_40x100.png</string>
+          <string>css/images/ui-bg_glass_100_f6f6f6_1x400.png</string>
+          <string>css/images/ui-bg_glass_100_fdf5ce_1x400.png</string>
+          <string>css/images/ui-bg_glass_65_ffffff_1x400.png</string>
+          <string>css/images/ui-bg_gloss-wave_35_f6a828_500x100.png</string>
+          <string>css/images/ui-bg_highlight-soft_100_eeeeee_1x100.png</string>
+          <string>css/images/ui-bg_highlight-soft_75_ffe45c_1x100.png</string>
+          <string>css/images/ui-icons_222222_256x240.png</string>
+          <string>css/images/ui-icons_228ef1_256x240.png</string>
+          <string>css/images/ui-icons_ef8c08_256x240.png</string>
+          <string>css/images/ui-icons_ffd27a_256x240.png</string>
+          <string>css/images/ui-icons_ffffff_256x240.png</string>
+          <string>css/jquery-ui-1.8.14.custom.css</string>
           <string>css/style.css</string>
           <string>js/jquery-1.6.2.min.js</string>
           <string>js/jquery-ui-1.8.custom.min.js</string>
           <string>js/jquery.validate.min.js</string>
           <string>META-INF/MANIFEST.MF</string>
-          <string>WEB-INF/pages/displaytag.jsp</string>
-          <string>WEB-INF/pages/elanceJob.jsp</string>
+          <string>WEB-INF/pages/elanceJob.jspx</string>
+          <string>WEB-INF/pages/elanceProvider.jspx</string>
           <string>WEB-INF/spring-servlet.xml</string>
           <string>WEB-INF/web.xml</string>
           <string>WEB-INF/classes/elance4j-spring-service.xml</string>
@@ -21,12 +35,10 @@
           <string>WEB-INF/classes/linkedin4j-spring-service.xml</string>
           <string>WEB-INF/classes/log4j.properties</string>
           <string>WEB-INF/classes/oDesk4j-spring-service.xml</string>
-          <string>WEB-INF/classes/org/pan/freelancer/controller/DisplaytagController.class</string>
           <string>WEB-INF/classes/org/pan/freelancer/controller/ElanceController.class</string>
           <string>WEB-INF/classes/org/pan/freelancer/controller/FreelancerController.class</string>
           <string>WEB-INF/classes/org/pan/freelancer/controller/LinkedinController.class</string>
           <string>WEB-INF/classes/org/pan/freelancer/controller/oDeskController.class</string>
-          <string>WEB-INF/classes/org/pan/freelancer/controller/User.class</string>
           <string>WEB-INF/classes/org/pan/freelancer/initializer/ElanceSystemInitializer.class</string>
           <string>WEB-INF/classes/org/pan/freelancer/initializer/FreelancerSystemInitializer.class</string>
           <string>WEB-INF/classes/org/pan/freelancer/initializer/LinkedInSystemInitializer.class</string>
