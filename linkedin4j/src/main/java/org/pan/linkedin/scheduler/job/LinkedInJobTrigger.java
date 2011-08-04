@@ -37,7 +37,7 @@ public class LinkedInJobTrigger implements StatefulJob {
 		
 		while (true) {	
 			
-			List<LinkedInJobModel> projects = client.searchJobsByCriteria(copySearchCriteria);
+			List<LinkedInJobModel> projects = client.searchJobsByCriteria(copySearchCriteria).getLinkedinJobs();
 					
 			newJobList = new ArrayList<LinkedInJobModel>();	
 			

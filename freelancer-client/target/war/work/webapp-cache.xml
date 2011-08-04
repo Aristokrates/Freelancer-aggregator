@@ -26,6 +26,8 @@
           <string>META-INF/MANIFEST.MF</string>
           <string>WEB-INF/pages/elanceJob.jspx</string>
           <string>WEB-INF/pages/elanceProvider.jspx</string>
+          <string>WEB-INF/pages/linkedinJob.jspx</string>
+          <string>WEB-INF/pages/linkedinProvider.jspx</string>
           <string>WEB-INF/pages/odeskJob.jspx</string>
           <string>WEB-INF/pages/odeskProvider.jspx</string>
           <string>WEB-INF/spring-servlet.xml</string>

@@ -23,7 +23,7 @@ public class LinkedinProjectTestCase extends BaseTestCase {
 		LinkedInJobSearchCriteria searchCriteria = new LinkedInJobSearchCriteria();
 		searchCriteria.setCountryCode("fr");
 		
-		List<LinkedInJobModel> jobs = linkedinService.getJobsByCriteria(searchCriteria);
+		List<LinkedInJobModel> jobs = linkedinService.getJobsByCriteria(searchCriteria).getLinkedinJobs();
 		
 		System.out.println(jobs);
 	}
@@ -33,9 +33,9 @@ public class LinkedinProjectTestCase extends BaseTestCase {
 		
 		LinkedInPeopleSearchCriteria searchCriteria = new LinkedInPeopleSearchCriteria();
 		searchCriteria.setKeywords("Java");
-		searchCriteria.setCountryCode("fr");
+		searchCriteria.addCountryCode("fr");
 		
-		List<LinkedInPersonModel> people = linkedinService.getProvidersByCriteria(searchCriteria);
+		List<LinkedInPersonModel> people = linkedinService.getProvidersByCriteria(searchCriteria).getPeople();
 		
 		System.out.println(people);
 	}

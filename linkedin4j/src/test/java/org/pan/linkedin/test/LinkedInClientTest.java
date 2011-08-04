@@ -45,7 +45,7 @@ public class LinkedInClientTest {
 	public void testPersonClient() {
 		
 		LinkedInPeopleSearchCriteria searchCriteria = new LinkedInPeopleSearchCriteria();
-		searchCriteria.setCountryCode("fr");
+		searchCriteria.addCountryCode("fr");
 		
 		clientWrapper.searchPeopleByCriteria(searchCriteria);
 	}

@@ -27,8 +27,6 @@ public class LinkedInPeopleSearchCriteria {
 	
 	private String currentTitle;
 	
-	private String countryCode;
-	
 	private String postalCode;
 	
 	private String distance;
@@ -36,6 +34,8 @@ public class LinkedInPeopleSearchCriteria {
 	private Integer start;
 	
 	private Integer count;
+	
+	private List<String> countryCodes = new ArrayList<String>();
 	
 	private List<String> industries;
 
@@ -104,12 +104,16 @@ public class LinkedInPeopleSearchCriteria {
 		this.currentTitle = currentTitle;
 	}
 
-	public String getCountryCode() {
-		return countryCode;
+	public List<String> getCountryCodes() {
+		return countryCodes;
 	}
 
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
+	public void setCountryCodes(List<String> countryCodes) {
+		this.countryCodes = countryCodes;
+	}
+	
+	public void addCountryCode(String countryCode) {
+		getCountryCodes().add(countryCode);
 	}
 
 	public String getPostalCode() {
@@ -180,10 +184,6 @@ public class LinkedInPeopleSearchCriteria {
 			map.put(SearchParameter.CURRENT_TITLE, getCurrentTitle());
 		}
 		
-		if (getCountryCode() != null) {
-			map.put(SearchParameter.COUNTRY_CODE, getCountryCode());
-		}
-		
 		if (getPostalCode() != null) {
 			map.put(SearchParameter.POSTAL_CODE, getPostalCode());
 		}
@@ -202,6 +202,11 @@ public class LinkedInPeopleSearchCriteria {
 		 
 		 for (String industryCode : getIndustries()) {
 			 facets.add(new Parameter<FacetType, String>(FacetType.INDUSTRY, industryCode));
+		 }
+		 
+		 
+		 for (String contryCode : getCountryCodes()) {
+			 facets.add(new Parameter<FacetType, String>(FacetType.LOCATION, contryCode));
 		 }
 		 
 		 return facets;
