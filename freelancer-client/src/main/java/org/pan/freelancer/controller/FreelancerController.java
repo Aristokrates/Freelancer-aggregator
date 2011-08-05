@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.pan.freelancer.service.FreelancerProjectService;
+import org.pan.freelancer4j.model.FreelancerProjectState;
 import org.pan.freelancer4j.model.project.FreelancerProject;
 import org.pan.freelancer4j.model.project.bids.FreelancerProjectBid;
 import org.pan.freelancer4j.model.user.FreelancerUser;
@@ -34,6 +35,7 @@ public class FreelancerController {
 		
 		ProjectSearchCriteria searchCriteria = new ProjectSearchCriteria();
 		searchCriteria.setPage(page);
+		searchCriteria.setProjectState(FreelancerProjectState.ACTIVE);
 		
 		List<FreelancerProject> projects = freelancerService.getProjectsByCriteria(searchCriteria);
 		

@@ -18,6 +18,11 @@
 			<artifactId>freelancer-domain-model</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.googlecode.linkedinj</groupId>
+			<artifactId>linkedin-j</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
 			<groupId>oauth.signpost</groupId>
 			<artifactId>signpost-core</artifactId>
 		</dependency>
