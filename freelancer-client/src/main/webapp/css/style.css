@@ -1,0 +1,8 @@
+table,td,th {
+	border: 1px solid #E78F08;
+}
+
+th {
+	background: url("images/ui-bg_gloss-wave_35_f6a828_500x100.png") repeat-x scroll 50% 50% #F6A828;
+	color: white;
+}

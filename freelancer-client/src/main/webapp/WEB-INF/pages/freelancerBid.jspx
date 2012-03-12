@@ -1,0 +1,52 @@
+<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jstl/core_rt"
+	xmlns:display="http://displaytag.sf.net"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+	<jsp:directive.page contentType="text/html" pageEncoding="UTF-8" />
+
+	<![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">]]>
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="../css/style.css" />
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="../css/jquery-ui-1.8.14.custom.css" />
+
+<script type="text/javascript" src="../js/jquery-1.6.2.min.js">//<![CDATA[ ]]></script>
+<script type="text/javascript" src="../js/jquery.validate.min.js">//<![CDATA[ ]]></script>
+<script type="text/javascript" src="../js/jquery-ui-1.8.custom.min.js">//<![CDATA[ ]]></script>
+
+</head>
+
+<body>
+
+	<h1>Freelancer Bids</h1>
+	<display:table uid="bid" name="${bidList}" defaultsort="8"
+		defaultorder="descending" pagesize="200" requestURI="" cellpadding="1" cellspacing="1" class="bidTable">
+
+		<display:column property="providerUserId" title="Provider Id" />
+		<display:column property="providerUsername" title="Provider Name" />
+		<display:column property="bidAmmount" title="Bid ammount($)" />
+		<display:column property="milestone" title="Milestone %" />
+		<display:column property="highlighted" title="Highligted" />
+		<display:column property="period" title="Estimation Period (in days)" />
+		<display:column property="description" title="Description" />
+		<display:column property="submitDate" title="Submit date" />
+		<display:column property="rating" title="Rating" />
+		<display:column property="totalMessageCount" title="Total messages" />
+		<display:column property="unreadMessageCount" title="Unread messages" />
+
+		<display:setProperty name="basic.empty.showtable" value="true" />
+		<display:setProperty name="paging.banner.group_size" value="10" />
+		<display:setProperty name="paging.banner.item_name" value="Bid" />
+		<display:setProperty name="paging.banner.item_names" value="Bids" />
+		<display:setProperty name="paging.banner.onepage" value="One" />
+
+	</display:table>
+
+</body>
+	</html>
+
+</jsp:root>
