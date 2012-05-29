@@ -1,6 +1,7 @@
 package org.pan.freelancer4j.model.project.details;
 
 import java.util.Date;
+import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -19,9 +20,9 @@ import org.pan.freelancer4j.model.project.FreelancerProject;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FreelancerProjectDetails extends FreelancerProject {
 	
-	private FreelanceProjectDetailsDescription additionalDescription;
+	private List<FreelanceProjectDetailsDescription> additionalDescription;
 	
-	private FreelanceProjectDetailsFile additionalFiles;
+	private List<FreelanceProjectDetailsFile> additionalFiles;
 	
 	@Override
 	public Date getEndDate() {
@@ -45,24 +46,24 @@ public class FreelancerProjectDetails extends FreelancerProject {
 		super.setStartDate(startDate);
 	}
 
-	@JsonProperty("addtional_descr")
-	public FreelanceProjectDetailsDescription getAdditionalDescription() {
+	@JsonProperty("additional_descr")
+	public List<FreelanceProjectDetailsDescription> getAdditionalDescription() {
 		return additionalDescription;
 	}
 
-	@JsonProperty("addtional_descr")
+	@JsonProperty("additional_descr")
 	public void setAdditionalDescription(
-			FreelanceProjectDetailsDescription additionalDescription) {
+			List<FreelanceProjectDetailsDescription> additionalDescription) {
 		this.additionalDescription = additionalDescription;
 	}
 
 	@JsonProperty("additional_files")
-	public FreelanceProjectDetailsFile getAdditionalFiles() {
+	public List<FreelanceProjectDetailsFile> getAdditionalFiles() {
 		return additionalFiles;
 	}
 
 	@JsonProperty("additional_files")
-	public void setAdditionalFiles(FreelanceProjectDetailsFile additionalFiles) {
+	public void setAdditionalFiles(List<FreelanceProjectDetailsFile> additionalFiles) {
 		this.additionalFiles = additionalFiles;
 	}
 

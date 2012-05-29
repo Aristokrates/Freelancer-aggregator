@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.pan.freelancer4j.json.JsonDateDeserializer;
 
 /**
  * Freelancer project details additional description model
@@ -51,7 +53,8 @@ public class FreelanceProjectDetailsDescription {
 		return submitDate;
 	}
 
-	@JsonProperty("submitdate")
+	@JsonDeserialize(using=JsonDateDeserializer.class)
+	@JsonProperty("submitdate")	
 	public void setSubmitDate(Date submitDate) {
 		this.submitDate = submitDate;
 	}

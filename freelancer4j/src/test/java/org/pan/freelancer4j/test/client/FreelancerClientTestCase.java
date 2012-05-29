@@ -52,10 +52,10 @@ public class FreelancerClientTestCase extends BaseTestCase {
 	
 	@Test
 	public void testAccesTokenTokenRetrieval() {
-		freelancerClient.setRequestToken(new FreelancerRequestToken("5331609ffc079d2d25eae212b78006fd501e0cfc", 
-				"c66e7a9bb49353503d42f807f8597f54c319bcad"));
+		freelancerClient.setRequestToken(new FreelancerRequestToken("56df2ce27f916d9b208afd02ee349a80c1ab86f8", 
+				"0f9b96c633a5e95f2038a7cad702d0c9e5f9094d"));
 		
-		FreelancerAccessToken token = freelancerClient.fetchAccessToken("2bd81c619580404cebbfd24bedda9b2930d4840d");
+		FreelancerAccessToken token = freelancerClient.fetchAccessToken("3bdfb83ff5ef130b3547418bcbfb5c71e94b71b5");
 
 		System.out.println("Access token: " + token);
 	}
